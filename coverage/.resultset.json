@@ -1,7 +1,7 @@
 {
   "RSpec": {
     "coverage": {
-      "/Users/mostafasakr/Desktop/turing/3mod/projects/rails-engine/spec/models/customer_spec.rb": {
+      "/Users/mostafasakr/Desktop/turing/3mod/projects/rails-engine/spec/models/merchant_spec.rb": {
         "lines": [
           1,
           null,
@@ -282,11 +282,10 @@
           null
         ]
       },
-      "/Users/mostafasakr/Desktop/turing/3mod/projects/rails-engine/spec/factories/customers.rb": {
+      "/Users/mostafasakr/Desktop/turing/3mod/projects/rails-engine/spec/factories/merchants.rb": {
         "lines": [
           1,
           1,
-          9,
           9,
           null,
           null
@@ -304,7 +303,7 @@
           null
         ]
       },
-      "/Users/mostafasakr/Desktop/turing/3mod/projects/rails-engine/app/models/customer.rb": {
+      "/Users/mostafasakr/Desktop/turing/3mod/projects/rails-engine/app/models/merchant.rb": {
         "lines": [
           1,
           null
@@ -317,7 +316,7 @@
           null
         ]
       },
-      "/Users/mostafasakr/Desktop/turing/3mod/projects/rails-engine/spec/requests/api/v1/customer_request_spec.rb": {
+      "/Users/mostafasakr/Desktop/turing/3mod/projects/rails-engine/spec/requests/api/v1/merchant_request_spec.rb": {
         "lines": [
           1,
           null,
@@ -339,9 +338,6 @@
           7,
           7,
           null,
-          7,
-          7,
-          null,
           null,
           null,
           1,
@@ -351,9 +347,6 @@
           null,
           1,
           null,
-          1,
-          null,
-          1,
           1,
           null,
           1,
@@ -365,7 +358,7 @@
           null
         ]
       },
-      "/Users/mostafasakr/Desktop/turing/3mod/projects/rails-engine/app/controllers/api/v1/customers_controller.rb": {
+      "/Users/mostafasakr/Desktop/turing/3mod/projects/rails-engine/app/controllers/api/v1/merchants_controller.rb": {
         "lines": [
           1,
           1,
@@ -385,6 +378,6 @@
         ]
       }
     },
-    "timestamp": 1670436810
+    "timestamp": 1670438700
   }
 }
