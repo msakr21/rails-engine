@@ -12,7 +12,8 @@
 # the additional setup, and require it from the spec files that actually need
 # it.
 require 'simplecov'
-SimpleCov.start
+SimpleCov.start 
+SimpleCov.add_filter %w[spec config]
 #
 # See https://rubydoc.info/gems/rspec-core/RSpec/Core/Configuration
 RSpec.configure do |config|
