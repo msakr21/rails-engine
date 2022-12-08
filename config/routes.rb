@@ -13,4 +13,6 @@ Rails.application.routes.draw do
       resources :items
     end
   end
+
+  get '/api/v1/items/:id/merchant', to: 'api/v1/item_merchants#show', as: :item_merchants
 end

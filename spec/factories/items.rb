@@ -1,8 +1,8 @@
 FactoryBot.define do
-  factory :item do
+  factory :item, class: Item do
     name { Faker::Commerce.product_name }
     description { Faker::Lorem.sentence }
     unit_price { Faker::Commerce.price }
-    merchant_id { create(:merchant).id }
+    association :merchant, factory: :merchant
   end
 end

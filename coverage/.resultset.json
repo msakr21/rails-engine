@@ -298,8 +298,22 @@
           54,
           54,
           54,
-          54,
+          1,
           null,
+          null
+        ]
+      },
+      "/Users/mostafasakr/Desktop/turing/3mod/projects/rails-engine/app/models/item.rb": {
+        "lines": [
+          1,
+          1,
+          null
+        ]
+      },
+      "/Users/mostafasakr/Desktop/turing/3mod/projects/rails-engine/app/models/application_record.rb": {
+        "lines": [
+          1,
+          1,
           null
         ]
       },
@@ -309,6 +323,13 @@
           1,
           64,
           null,
+          null
+        ]
+      },
+      "/Users/mostafasakr/Desktop/turing/3mod/projects/rails-engine/app/models/merchant.rb": {
+        "lines": [
+          1,
+          1,
           null
         ]
       },
@@ -329,19 +350,7 @@
           1,
           null,
           null,
-          null
-        ]
-      },
-      "/Users/mostafasakr/Desktop/turing/3mod/projects/rails-engine/app/models/item.rb": {
-        "lines": [
-          1,
-          1,
-          null
-        ]
-      },
-      "/Users/mostafasakr/Desktop/turing/3mod/projects/rails-engine/app/models/application_record.rb": {
-        "lines": [
-          1,
+          null,
           1,
           null
         ]
@@ -354,13 +363,6 @@
           1,
           2,
           null,
-          null
-        ]
-      },
-      "/Users/mostafasakr/Desktop/turing/3mod/projects/rails-engine/app/models/merchant.rb": {
-        "lines": [
-          1,
-          1,
           null
         ]
       },
@@ -379,27 +381,25 @@
           null,
           1,
           null,
+          0,
+          0,
+          0,
+          null,
+          0,
+          0,
+          null,
+          0,
+          0,
+          null,
+          0,
+          0,
+          null,
+          0,
+          0,
+          null,
+          null,
+          null,
           1,
-          50,
-          50,
-          null,
-          50,
-          50,
-          null,
-          50,
-          50,
-          null,
-          50,
-          50,
-          null,
-          50,
-          50,
-          null,
-          null,
-          null,
-          1,
-          1,
-          null,
           1,
           null,
           1,
@@ -407,19 +407,21 @@
           1,
           null,
           1,
-          1,
           null,
           1,
-          1,
+          0,
           null,
-          1,
-          1,
+          0,
+          0,
           null,
-          1,
-          1,
+          0,
+          0,
           null,
-          1,
-          1,
+          0,
+          0,
+          null,
+          0,
+          0,
           null,
           null,
           1,
@@ -558,6 +560,14 @@
           null
         ]
       },
+      "/Users/mostafasakr/Desktop/turing/3mod/projects/rails-engine/app/serializer/item_serializer.rb": {
+        "lines": [
+          1,
+          1,
+          1,
+          null
+        ]
+      },
       "/Users/mostafasakr/Desktop/turing/3mod/projects/rails-engine/app/controllers/api/v1/merchants_controller.rb": {
         "lines": [
           1,
@@ -576,6 +586,6 @@
         ]
       }
     },
-    "timestamp": 1670458732
+    "timestamp": 1670521471
   }
 }
