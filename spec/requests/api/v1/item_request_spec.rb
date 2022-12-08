@@ -7,51 +7,50 @@ describe "items API" do
     get '/api/v1/items'
     
     expect(response).to be_successful
-    items = JSON.parse(response.body, symbolize_names: true)
+    items_data = JSON.parse(response.body, symbolize_names: true)
+    items = items_data[:data]
 
     expect(items.length).to eq(50)
 
     items.each do |item|
       expect(item).to have_key(:id)
-      expect(item[:id]).to be_an(Integer)
+      expect(item[:id]).to be_an(String)
 
-      expect(item).to have_key(:name)
-      expect(item[:name]).to be_a(String)
+      expect(item[:attributes]).to have_key(:name)
+      expect(item[:attributes][:name]).to be_a(String)
 
-      expect(item).to have_key(:description)
-      expect(item[:description]).to be_a(String)
+      expect(item[:attributes]).to have_key(:description)
+      expect(item[:attributes][:description]).to be_a(String)
 
-      expect(item).to have_key(:unit_price)
-      expect(item[:unit_price]).to be_a(Float)
-
-      expect(item).to have_key(:merchant_id)
-      expect(item[:merchant_id]).to be_a(Integer)
+      expect(item[:attributes]).to have_key(:unit_price)
+      expect(item[:attributes][:unit_price]).to be_a(Float)
     end
   end
 
-  it "can get one item by their id" do
+  it "can get one item by its id" do
     id = create(:item).id
 
     get "/api/v1/items/#{id}"
 
-    item = JSON.parse(response.body, symbolize_names: true)
-
     expect(response).to be_successful
 
+    item_data = JSON.parse(response.body, symbolize_names: true)
+    item = item_data[:data]
+
     expect(item).to have_key(:id)
-    expect(item[:id]).to eq(id)
+    expect(item[:id].to_i).to eq(id)
 
-    expect(item).to have_key(:name)
-    expect(item[:name]).to be_a(String)
+    expect(item).to have_key(:attributes)
+    expect(item[:attributes]).to be_a(Hash)
 
-    expect(item).to have_key(:description)
-    expect(item[:description]).to be_a(String)
+    expect(item[:attributes]).to have_key(:name)
+    expect(item[:attributes][:name]).to be_a(String)
 
-    expect(item).to have_key(:unit_price)
-    expect(item[:unit_price]).to be_a(Float)
+    expect(item[:attributes]).to have_key(:description)
+    expect(item[:attributes][:description]).to be_a(String)
 
-    expect(item).to have_key(:merchant_id)
-    expect(item[:merchant_id]).to be_a(Integer)
+    expect(item[:attributes]).to have_key(:unit_price)
+    expect(item[:attributes][:unit_price]).to be_a(Float)
   end
 
   it "can create a new item" do
@@ -66,13 +65,35 @@ describe "items API" do
     headers = {"CONTENT_TYPE" => "application/json"}
 
     post "/api/v1/items", headers: headers, params: JSON.generate(item: item_params)
-    created_item = Item.last
 
     expect(response).to be_successful
+
+    created_item = Item.last
+    item_data = JSON.parse(response.body, symbolize_names: true)
+    item = item_data[:data]
+
     expect(created_item.name).to eq(item_params[:name])
     expect(created_item.description).to eq(item_params[:description])
     expect(created_item.unit_price).to eq(item_params[:unit_price])
     expect(created_item.merchant_id).to eq(item_params[:merchant_id])
+
+    expect(item).to have_key(:id)
+    expect(item[:id].to_i).to eq(id)
+
+    expect(item).to have_key(:attributes)
+    expect(item[:attributes]).to be_a(Hash)
+
+    expect(item[:attributes]).to have_key(:name)
+    expect(item[:attributes][:name]).to be_a(String)
+
+    expect(item[:attributes]).to have_key(:description)
+    expect(item[:attributes][:description]).to be_a(String)
+
+    expect(item[:attributes]).to have_key(:unit_price)
+    expect(item[:attributes][:unit_price]).to be_a(Float)
+
+    expect(item[:attributes]).to have_key(:merchant_id)
+    expect(item[:attributes][:merchant_id]).to be_an(Integer)
   end
 
   it "can update an existing item" do
@@ -84,11 +105,32 @@ describe "items API" do
     headers = {"CONTENT_TYPE" => "application/json"}
 
     patch "/api/v1/items/#{id}", headers: headers, params: JSON.generate(item: item_params)
-    item = Item.find_by(id: id)
-
     expect(response).to be_successful
-    expect(item.unit_price).to_not eq(previous_price)
-    expect(item.unit_price).to eq(72.48)
+    
+    updated_item = Item.find_by(id: id)
+    item_data = JSON.parse(response.body, symbolize_names: true)
+    item = item_data[:data]
+
+    expect(updated_item.unit_price).to_not eq(previous_price)
+    expect(updated_item.unit_price).to eq(72.48)
+
+    expect(item).to have_key(:id)
+    expect(item[:id].to_i).to eq(id)
+
+    expect(item).to have_key(:attributes)
+    expect(item[:attributes]).to be_a(Hash)
+
+    expect(item[:attributes]).to have_key(:name)
+    expect(item[:attributes][:name]).to be_a(String)
+
+    expect(item[:attributes]).to have_key(:description)
+    expect(item[:attributes][:description]).to be_a(String)
+
+    expect(item[:attributes]).to have_key(:unit_price)
+    expect(item[:attributes][:unit_price]).to be_a(Float)
+
+    expect(item[:attributes]).to have_key(:merchant_id)
+    expect(item[:attributes][:merchant_id]).to be_an(Integer)
   end
 
   it "can destroy an item" do
