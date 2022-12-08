@@ -7,6 +7,8 @@
           null,
           1,
           1,
+          2,
+          null,
           null
         ]
       },
@@ -76,6 +78,13 @@
           null,
           null,
           1,
+          null,
+          null,
+          1,
+          1,
+          1,
+          1,
+          null,
           null
         ]
       },
@@ -286,10 +295,10 @@
         "lines": [
           1,
           1,
-          53,
-          53,
-          53,
-          53,
+          54,
+          54,
+          54,
+          54,
           null,
           null
         ]
@@ -298,7 +307,7 @@
         "lines": [
           1,
           1,
-          63,
+          64,
           null,
           null
         ]
@@ -324,6 +333,7 @@
       "/Users/mostafasakr/Desktop/turing/3mod/projects/rails-engine/app/models/item.rb": {
         "lines": [
           1,
+          1,
           null
         ]
       },
@@ -340,11 +350,14 @@
           null,
           1,
           1,
+          2,
+          null,
           null
         ]
       },
       "/Users/mostafasakr/Desktop/turing/3mod/projects/rails-engine/app/models/merchant.rb": {
         "lines": [
+          1,
           1,
           null
         ]
@@ -443,6 +456,18 @@
           1,
           1,
           null,
+          null,
+          1,
+          1,
+          null,
+          1,
+          null,
+          1,
+          null,
+          1,
+          1,
+          2,
+          null,
           null
         ]
       },
@@ -512,6 +537,10 @@
           null,
           1,
           1,
+          null,
+          null,
+          1,
+          1,
           2,
           null,
           null
@@ -537,6 +566,6 @@
         ]
       }
     },
-    "timestamp": 1670455319
+    "timestamp": 1670457791
   }
 }
