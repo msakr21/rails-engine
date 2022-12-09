@@ -53,6 +53,12 @@ describe "items API" do
     expect(item[:attributes][:unit_price]).to be_a(Float)
   end
 
+  it "can get one item by its id" do
+    get "/api/v1/items/1000000"
+
+    expect(response).to_not be_successful
+  end
+
   it "can create a new item" do
     id = create(:merchant).id
 
