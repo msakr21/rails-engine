@@ -74,4 +74,36 @@ describe "merchants API" do
       expect(item[:attributes][:unit_price]).to be_a(Float)
     end
   end
+
+  it "can find merchant by name(it returns first, alphabatically, case insensitive result)" do
+    merchant_1 = Merchant.create(name: 'Turing')
+    merchant_2 = Merchant.create(name: 'Ring World')
+    merchant_3 = Merchant.create(name: 'Bringing joy')
+
+    get "/api/v1/merchants/find?name=ring"
+
+    expect(response).to be_successful
+
+    merchant_data = JSON.parse(response.body, symbolize_names: true)
+    expect(merchant_data.length).to eq(1)
+
+    merchant = merchant_data[:data]
+    expect(merchant[:id].to_i).to eq(merchant_3.id)
+    expect(merchant[:attributes][:name]).to eq('Bringing joy')
+  end
+
+  it "it will return a blank result if no match" do
+    merchant_1 = Merchant.create(name: 'Turing')
+    merchant_2 = Merchant.create(name: 'Ring World')
+    merchant_3 = Merchant.create(name: 'Bringing joy')
+
+    get "/api/v1/merchants/find?name=TEST"
+
+    expect(response).to be_successful
+
+    merchant_data = JSON.parse(response.body, symbolize_names: true)
+    expect(merchant_data.length).to eq(1)
+    merchant = merchant_data[:data]
+    expect(merchant[:data]).to eq(nil)
+  end
 end

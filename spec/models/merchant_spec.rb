@@ -13,7 +13,7 @@ RSpec.describe Merchant, type: :model do
     end
     describe '#search' do
       it 'returns case insensitive partial matches' do
-        expect(Merchant.search("ring")).to eq([@merchant_3, @merchant_2, @merchant_1])
+        expect(Merchant.search("ring")).to eq(@merchant_3)
       end
     end
   end
