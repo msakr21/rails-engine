@@ -141,10 +141,6 @@ describe "items API" do
 
     create(:item, merchant_id: merchant.id)
 
-    merchant_id = create(:merchant).id
-
-    previous_price = Item.last.unit_price
-
     item_params = ({ unit_price: 72.48 })
     headers = {"CONTENT_TYPE" => "application/json"}
 
@@ -157,10 +153,6 @@ describe "items API" do
     merchant = create(:merchant)
 
     create(:item, merchant_id: merchant.id)
-
-    merchant_id = create(:merchant).id
-
-    previous_price = Item.last.unit_price
 
     item_params = ({ unit_price: 72.48 })
     headers = {"CONTENT_TYPE" => "application/json"}
