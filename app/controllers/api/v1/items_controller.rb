@@ -1,6 +1,3 @@
-require './app/poros/error_item'
-require './app/serializers/error_item_serializer'
-
 class Api::V1::ItemsController < ApplicationController
   def index
     if params[:merchant_id].nil?
@@ -19,7 +16,7 @@ class Api::V1::ItemsController < ApplicationController
   end
 
   def update
-    if Item.update(params[:id], item_params).save
+    if Item.where(id: params[:id]).exists? && Item.update(params[:id], item_params).save
       render json: ItemSerializer.new(Item.find(params[:id]))
     else
       render json: { error: 'Does not exist' }, status: :not_found

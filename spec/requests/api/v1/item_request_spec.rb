@@ -110,8 +110,7 @@ describe "items API" do
 
     put "/api/v1/items/#{Item.last.id}", headers: headers, params: JSON.generate(item: item_params)
     expect(response).to be_successful
-    binding.pry
-    updated_item = Item.find_by(id: id)
+    updated_item = Item.find(Item.last.id)
     item_data = JSON.parse(response.body, symbolize_names: true)
     item = item_data[:data]
 
@@ -135,6 +134,23 @@ describe "items API" do
 
     expect(item[:attributes]).to have_key(:merchant_id)
     expect(item[:attributes][:merchant_id]).to be_an(Integer)
+  end
+
+  it "will not update an item if item id is an invalid integer" do
+    merchant = create(:merchant)
+
+    create(:item, merchant_id: merchant.id)
+
+    merchant_id = create(:merchant).id
+
+    previous_price = Item.last.unit_price
+
+    item_params = ({ unit_price: 72.48 })
+    headers = {"CONTENT_TYPE" => "application/json"}
+
+    put "/api/v1/items/100000000", headers: headers, params: JSON.generate(item: item_params)
+ 
+    expect(response).to_not be_successful
   end
 
   it "can destroy an item" do
