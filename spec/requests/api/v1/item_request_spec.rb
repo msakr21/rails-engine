@@ -153,6 +153,23 @@ describe "items API" do
     expect(response).to_not be_successful
   end
 
+  it "will not update an item if item id is a string" do
+    merchant = create(:merchant)
+
+    create(:item, merchant_id: merchant.id)
+
+    merchant_id = create(:merchant).id
+
+    previous_price = Item.last.unit_price
+
+    item_params = ({ unit_price: 72.48 })
+    headers = {"CONTENT_TYPE" => "application/json"}
+
+    put "/api/v1/items/ummmm", headers: headers, params: JSON.generate(item: item_params)
+ 
+    expect(response).to_not be_successful
+  end
+
   it "can destroy an item" do
     item = create(:item)
   
