@@ -84,7 +84,7 @@ describe "items API" do
     expect(created_item.merchant_id).to eq(item_params[:merchant_id])
 
     expect(item).to have_key(:id)
-    expect(item[:id].to_i).to eq(id)
+    expect(item[:id].to_i).to eq(created_item.id)
 
     expect(item).to have_key(:attributes)
     expect(item[:attributes]).to be_a(Hash)
