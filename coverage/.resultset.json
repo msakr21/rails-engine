@@ -34,7 +34,11 @@
           null,
           null,
           1,
+          2,
           1,
+          null,
+          1,
+          null,
           null,
           null,
           1,
@@ -74,14 +78,6 @@
           null
         ]
       },
-      "/Users/mostafasakr/Desktop/turing/3mod/projects/rails-engine/app/serializers/merchant_item_serializer.rb": {
-        "lines": [
-          1,
-          1,
-          1,
-          null
-        ]
-      },
       "/Users/mostafasakr/Desktop/turing/3mod/projects/rails-engine/app/controllers/api/v1/item_merchants_controller.rb": {
         "lines": [
           1,
@@ -113,6 +109,6 @@
         ]
       }
     },
-    "timestamp": 1670549721
+    "timestamp": 1670552469
   }
 }
