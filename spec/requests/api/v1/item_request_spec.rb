@@ -97,16 +97,20 @@ describe "items API" do
   end
 
   it "can update an existing item" do
+    merchant = create(:merchant)
+
+    create(:item, merchant_id: merchant.id)
+
     merchant_id = create(:merchant).id
-    id = create(:item).id
+
     previous_price = Item.last.unit_price
 
     item_params = ({ unit_price: 72.48 })
     headers = {"CONTENT_TYPE" => "application/json"}
 
-    patch "/api/v1/items/#{id}", headers: headers, params: JSON.generate(item: item_params)
+    put "/api/v1/items/#{Item.last.id}", headers: headers, params: JSON.generate(item: item_params)
     expect(response).to be_successful
-    
+    binding.pry
     updated_item = Item.find_by(id: id)
     item_data = JSON.parse(response.body, symbolize_names: true)
     item = item_data[:data]
@@ -115,7 +119,7 @@ describe "items API" do
     expect(updated_item.unit_price).to eq(72.48)
 
     expect(item).to have_key(:id)
-    expect(item[:id].to_i).to eq(id)
+    expect(item[:id].to_i).to eq(Item.last.id)
 
     expect(item).to have_key(:attributes)
     expect(item[:attributes]).to be_a(Hash)
